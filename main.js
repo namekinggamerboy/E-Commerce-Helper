@@ -1,7 +1,7 @@
 function VerifyWebAccess(encodeCode, url){
 var data = '',
-var code = 100,
-var error = '';
+    code = 100,
+    error = '';
 url = "https://marvelous-legend-catboat.glitch.me";
 $(document).ready(function() { 
 $("#body").hide();
