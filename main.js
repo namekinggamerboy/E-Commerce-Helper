@@ -69,17 +69,13 @@ function invertColor(hex, bw) {
         b = parseInt(hex.slice(4, 6), 16);
     if (bw) {
         // https://stackoverflow.com/a/3943023/112731
-        return (r * 0.299 + g * 0.587 + b * 0.114) > 186
-            ? '#000000'
-            : '#FFFFFF
+        return (r * 0.299 + g * 0.587 + b * 0.114) > 186  ? '#000000' : '#FFFFFF';
     }
     // invert color components
-    
     r = (255 - r).toString(16);
     g = (255 - g).toString(16);
     b = (255 - b).toString(16);
     // pad each with zeros and return
-    
     return "#" + padZero(r) + padZero(g) + padZero(b);
 }
 
