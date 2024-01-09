@@ -74,10 +74,12 @@ function invertColor(hex, bw) {
             : '#FFFFFF
     }
     // invert color components
+    
     r = (255 - r).toString(16);
     g = (255 - g).toString(16);
     b = (255 - b).toString(16);
     // pad each with zeros and return
+    
     return "#" + padZero(r) + padZero(g) + padZero(b);
 }
 
