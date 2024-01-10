@@ -1,10 +1,10 @@
-function VerifyWebAccess(encodeCode, url){
-var data = '',
-    code = 100,
-    error = '';
+import {gsap} from "https://esm.sh/gsap";
+import { ScrollTrigger } from "https://esm.sh/gsap/ScrollTrigger.js";
+
+import {viewWebsite} from "./start.js";
+
+export function VerifyWebAccess(encodeCode, webData, url){
 url = "https://marvelous-legend-catboat.glitch.me";
-$(document).ready(function() { 
-$("#body").hide();
   fetch(url+"/api/userFound", {
     method: "GET",
     headers: {
@@ -20,33 +20,21 @@ $("#body").hide();
     'Authorization': `Bearer E-Commerce Helper Website ${body.data.code}`,
      'Id': "Bearer E-Commerce Helper Website cW9zamRmag=="
   },
-  }).then(e => e.json()).then(body => {
-    if(body.success){
-      data = body.data;
+  }).then(e => e.json()).then(ok => {
+    if(ok.success){
+       viewWebsite({ success: true, data: ok.data }, webData, invertColor, navColorPicker);
     } else {
-      code = body.code;
-      error: body.error;
+       viewWebsite({ success: false, code: body.code, error: body.error }, webData, invertColor, navColorPicker);
     }
     }).catch(er => {
-    code = 500;
-    error = er;
+       viewWebsite({ success: false, code: 500 }, webData, invertColor, navColorPicker);
     });
     } else {
-      code = body.code;
-      error: body.error;
+       viewWebsite({ success: false, code: body.code, error: body.error }, webData, invertColor, navColorPicker);
     }
   }).catch(ef => {
-    code = 500;
-    error = ef;
+       viewWebsite({ success: false, code: 500 }, webData, invertColor, navColorPicker);
   });
-});
-  if(code == 200){
-  return { success: true, data: data };
-  } else if(code == 500) {
-  return { success: false, error: error };
-  } else if(code > 9||code < 99){
-    return { success: false, code: code, error: error, data: data };
-  }
 }
 
 function setHtml(val, html){
