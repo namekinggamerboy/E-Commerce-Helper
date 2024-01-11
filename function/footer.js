@@ -35,16 +35,18 @@ fo = `<footer id="sticky-footer" class="flex-shrink-0 py-4 text-50" style="backg
           <li><a href="#">About Us</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
-      </div>
-      <div class="col-md-4">
-        <h5>Follow Us</h5>
-        <ul class="social-icons" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}">
-          <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-          <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-        </ul>
-      </div>
-    </div>
+      </div>`;
+      if(socialLink.length){
+      fo += `<div class="col-md-4">
+        <h5>Follow Us</h5><ul class="social-icons" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}">`;
+        socialLink.map(slink => {
+          if(slink.name.endsWith("Btn")){
+         fo += `<li><a href="${slink.url}" target="_blank" id="${slink.name}"><i class="${slink.name}"></i></a></li>`;
+          }
+        });
+        fo += `</ul></div>`;
+      }
+    fo += `</div>
   </div>
   </footer>`;  
   } else if(nav.type === 3){
