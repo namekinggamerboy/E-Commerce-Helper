@@ -8,7 +8,7 @@ ex.
     import {VerifyWebAccess} from "https://namekinggamerboy.github.io/E-Commerce-Helper/main.js";
 $(document).ready(function() { 
 $("#body").hide();
-  VerifyWebAccess("aVRvR1NjUm44MjIxMjQ=",{
+  VerifyWebAccess("< token id >",{
      footerColor: "plum",
      link: [{
       title: 'home',
