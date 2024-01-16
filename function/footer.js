@@ -21,69 +21,83 @@ fo = `<footer id="sticky-footer" class="flex-shrink-0 py-4 text-50" style="backg
          if(!body.data.website.name.includes(" ")) return  fo += `<h5 class="footer-logo">${body.data.website.name}</h5>`;
          let ho = body.data.website.name.split(" ")[1];
          let bo = body.data.website.name.split(" ")[0];
-        fo += `<h5 class="footer-logo">${bo} <span>${ho}</span></h5>`;
+        fo += `<h5 class="footer-logo">${bo} <span style="color: ${data.footerColor ? data.footerColor : invertColor(footer.color,'#000000', '#FFFFFF')};">${ho}</span></h5>`;
        } else {
          fo += `<h5 class="footer-logo">${body.data.website.name}</h5>`;
        }
-      fo +=  `<p>${footer.text}</p>
-      </div>
-      <div class="col-md-4">
-        <h5>Quick Links</h5>
-        <ul class="footer-links" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </div>`;
+      fo +=  `<p>${footer.text}</p></div>`;
+      if(pageLink.length){
+      fo += `<div class="col-md-4"><h5>Quick Links</h5><ul class="footer-links" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}">`;
+       pageLink.map(link => { 
+        fo += `<li><a href="${link.url}">${link.title}</a></li>`;
+       });
+       fo += `</ul></div>`;
+      }
+      if(careerLink.length){
+      fo += `<div class="col-md-4"><h5>Careers</h5><ul class="footer-links" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}">`;
+       careerLink.map(clink => { 
+        fo += `<li><a href="${clink.url}">${clink.title}</a></li>`;
+       });
+       fo += `</ul></div>`;
+      }
+      if(otherLink.length){
+      fo += `<div class="col-md-4"><h5>Other Services</h5><ul class="footer-links" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}">`;
+       otherLink.map(olink => { 
+        fo += `<li><a href="${olink.url}">${olink.title}</a></li>`;
+       });
+       fo += `</ul></div>`;
+      }
       if(socialLink.length){
       fo += `<div class="col-md-4">
         <h5>Follow Us</h5><ul class="social-icons" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}">`;
         socialLink.map(slink => {
           if(slink.name.endsWith("Btn")){
-         fo += `<li><a href="${slink.url}" target="_blank" id="${slink.name}"><i class="${slink.name}"></i></a></li>`;
+         fo += `<li><a href="${slink.url}" target="_blank" id="${slink.name}"><i class="${slink.title}"></i></a></li>`;
           }
         });
         fo += `</ul></div>`;
       }
-    fo += `</div>
-  </div>
-  </footer>`;  
+    fo += `</div></div></footer>`;  
   } else if(nav.type === 3){
     fo = `<div class="footer-clean"  style="background: ${footer.color}; color: ${invertColor(footer.color,'#000000', '#FFFFFF')};">
         <footer>
             <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-sm-4 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
+                <div class="row justify-content-center">`;
+                 if(otherLink.length){
+         fo += `<div class="col-sm-4 col-md-3 item"><h3>Services</h3><ul>`;
+                    otherLink.map(olink => {         
+                   fo += `<li><a href="${olink.url}">${olink.title}</a></li>`;
+                    });
+                        fo += `</ul></div>`;
+                 }
+                    if(pageLink.length){
+                    fo += `<div class="col-sm-4 col-md-3 item">
                         <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Legacy</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-4 col-md-3 item">
+                        <ul>`;
+                      pageLink.map(link => { 
+              fo += `<li><a href="${link.url}">${link.title}</a></li>`;
+                       });
+                        fo += `</ul></div>`;
+                    }
+                    if(careerLink.length){
+                    fo += `<div class="col-sm-4 col-md-3 item">
                         <h3>Careers</h3>
-                        <ul>
-                            <li><a href="#">Job openings</a></li>
-                            <li><a href="#">Employee success</a></li>
-                            <li><a href="#">Benefits</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 item social"><a href="#"><i class="icon ion-social-facebook" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}"></i></a>
-                    <a href="#"><i class="icon ion-social-twitter" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')};"></i></a>
-    <a href="#"><i class="icon ion-social-snapchat" style="color: ${invertColor(footer.color,'#000000', '#FFFFFF')}"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a>
-                        <p class="copyright">${footer.text}</p>
-                    </div>
-                </div>
+                        <ul>`;
+                    careerLink.map(clink => { 
+                    fo += `<li><a href="${clink.url}">${clink.title}</a></li>`;
+                             });
+                        fo += `</ul></div>`;
+                        }
+                  if(socialLink.length){
+                  fo += `<div class="col-lg-3 item social">`;
+                  socialLink.map(slink => {
+          if(slink.name.endsWith("Btn")){
+         fo += `<a href="${slink.url}" target="_blank" id="${slink.name}"><i class="${slink.title}"></i></a>`;
+          }
+        });
+                    `</div>`;
+                  }
+                fo += `<div class="col-lg-3" style="width: max-content;"><p class="copyright">${footer.text}</p></div></div>
             </div>
         </footer>
     </div>`;
