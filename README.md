@@ -8,7 +8,7 @@ ex.
     import {VerifyWebAccess} from "https://namekinggamerboy.github.io/E-Commerce-Helper/main.js";
 $(document).ready(function() { 
 $("#body").hide();
-  VerifyWebAccess("< token id >",{
+  VerifyWebAccess("< token id (encode) >", "< website id (encode) >", {
      footerColor: "plum",
      link: [{
       title: 'home',
@@ -29,7 +29,7 @@ $("#body").hide();
       title: 'grow report',
       url: '/'
   }]
-  });
+  }, "< page type >");
 });
   </script>
 ```
