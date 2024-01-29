@@ -1,10 +1,9 @@
 import {gsap} from "https://esm.sh/gsap";
 import { ScrollTrigger } from "https://esm.sh/gsap/ScrollTrigger.js";
-
 import {viewWebsite} from "./start.js";
-
-export function VerifyWebAccess(encodeCode, webData, url){
+export function VerifyWebAccess(encodeCode, encodeId, webData, type, url){
 url = "https://marvelous-legend-catboat.glitch.me";
+  if(!type)type = "homepage";
   fetch(url+"/api/userFound", {
     method: "GET",
     headers: {
@@ -18,7 +17,8 @@ url = "https://marvelous-legend-catboat.glitch.me";
     headers: {
     'Content-Type': 'application/json',
     'Authorization': `Bearer E-Commerce Helper Website ${body.data.code}`,
-     'Id': "Bearer E-Commerce Helper Website cW9zamRmag=="
+    'Id': `Bearer E-Commerce Helper Website ${encodeId}`,
+    'Typeofweb': `Bearer ECH-${type}` 
   },
   }).then(e => e.json()).then(ok => {
     if(ok.success){
@@ -36,11 +36,9 @@ url = "https://marvelous-legend-catboat.glitch.me";
        viewWebsite({ success: false, code: 500 }, webData, invertColor, navColorPicker);
   });
 }
-
 function setHtml(val, html){
 return $("#"+val).html(html);
 }
-
 function invertColor(hex, bw) {
     if (hex.indexOf('#') === 0) {
         hex = hex.slice(1);
@@ -66,7 +64,6 @@ function invertColor(hex, bw) {
     // pad each with zeros and return
     return "#" + padZero(r) + padZero(g) + padZero(b);
 }
-
 function navColorPicker(color) {
   if(color.replace("#", "") == "FFFFFF"){
     return "navbar-dark";
