@@ -29,13 +29,13 @@ url = "https://marvelous-legend-catboat.glitch.me";
        viewWebsite({ success: false, code: body.code, error: body.error }, webData, invertColor, navColorPicker);
     }
     }).catch(er => {
-       viewWebsite({ success: false, code: 500 }, webData, invertColor, navColorPicker);
+       viewWebsite({ success: false, code: 500, error: ef }, webData, invertColor, navColorPicker);
     });
     } else {
        viewWebsite({ success: false, code: body.code, error: body.error }, webData, invertColor, navColorPicker);
     }
   }).catch(ef => {
-       viewWebsite({ success: false, code: 500 }, webData, invertColor, navColorPicker);
+       viewWebsite({ success: false, code: 500, error: ef }, webData, invertColor, navColorPicker);
   });
 }
 function setHtml(val, html){
