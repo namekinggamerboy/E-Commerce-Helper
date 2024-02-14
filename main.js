@@ -2,6 +2,8 @@ import {gsap} from "https://esm.sh/gsap";
 import { ScrollTrigger } from "https://esm.sh/gsap/ScrollTrigger.js";
 import {viewWebsite} from "./start.js";
 export function VerifyWebAccess(encodeCode, encodeId, webData, type, url){
+    $('head').append(`<link rel="stylesheet" href="https://namekinggamerboy.github.io/E-Commerce-Helper/main.css" /> 
+<script src="https://namekinggamerboy.github.io/E-Commerce-Helper/function/function.js"></script>`);
 url = "https://marvelous-legend-catboat.glitch.me";
   if(!type)type = "homepage";
   fetch(url+"/api/userFound", {
