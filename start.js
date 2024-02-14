@@ -5,7 +5,7 @@ import {viewNavbar} from './function/navbar.js';
 import {viewFooter} from './function/footer.js';
 
 export const viewWebsite = (body, webdata, invertColor, navColorPicker) => {
-   console.log(body);
+   // console.log(body);
    if(body.success){
       let ggscript = '';
       let desc = body.data.website.description;
