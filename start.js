@@ -36,8 +36,8 @@ export const viewWebsite = (body, webdata, invertColor, navColorPicker) => {
         caches.delete(name);
 });   
     } else {
-      if(body.code < 500){
-    $("#alertcss").html(`<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet"><link href="/servererror.css" rel="stylesheet">`); 
+      if(body.code < 400){
+    $("#alertcss").html(`<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet"><link href="https://namekinggamerboy.github.io/E-Commerce-Helper/servererror.css" rel="stylesheet">`); 
     $("#alert").html(`<div class="vc-container">
   <div class="vc-content">
     <h1 class="vc-heading">${body.code}</h1>
@@ -47,7 +47,7 @@ export const viewWebsite = (body, webdata, invertColor, navColorPicker) => {
 </div>`);
   $("#load").hide();
     $("#alert").show();
-    } else if(body.code === 500||body.code === 10||body.code){
+    } else if(body.code > 400){
   $("#load").hide();
     $("#alert").show();
     $("#alertcss").html(` <link href="https://namekinggamerboy.github.io/E-Commerce-Helper/error.css" rel="stylesheet">`); 
