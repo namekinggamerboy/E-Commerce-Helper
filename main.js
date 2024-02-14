@@ -23,12 +23,12 @@ url = "https://marvelous-legend-catboat.glitch.me";
     'Typeofweb': `Bearer ECH-${type}` 
   },
   }).then(e => e.json()).then(ok => {
-      console.log("fetch body",body);
-      console.log("getch ok",ok);
+     /* console.log("fetch body",body);
+      console.log("getch ok",ok); */
     if(ok.success){
        viewWebsite({ success: true, data: ok.data }, webData, invertColor, navColorPicker);
     } else {
-       viewWebsite({ success: false, code: body.code, error: body.error }, webData, invertColor, navColorPicker);
+       viewWebsite({ success: false, code: ok.code, error: ok.error }, webData, invertColor, navColorPicker);
     }
     }).catch(er => {
        viewWebsite({ success: false, code: 500, error: ef }, webData, invertColor, navColorPicker);
