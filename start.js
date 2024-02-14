@@ -35,7 +35,8 @@ export const viewWebsite = (body, webdata, invertColor, navColorPicker) => {
     for (let name of names)
         caches.delete(name);
 });   
-    } else if(body.code < 500){
+    } else {
+      if(body.code < 500){
     $("#alertcss").html(`<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet"><link href="/servererror.css" rel="stylesheet">`); 
     $("#alert").html(`<div class="vc-container">
   <div class="vc-content">
@@ -53,5 +54,6 @@ export const viewWebsite = (body, webdata, invertColor, navColorPicker) => {
     $("#ern").html("10");
     $("#er").html("Server Error Please Contact<br>E-Commerce Helper!");
     console.log(body.error);
+}
 }
 }
