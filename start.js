@@ -1,14 +1,11 @@
-var MainData = '';
 import {gsap} from "https://esm.sh/gsap";
 import { ScrollTrigger } from "https://esm.sh/gsap/ScrollTrigger.js";
 
-import {viewNavbar} from './function/navbar.js';
-import {viewFooter} from './function/footer.js';
+import {viewNavbar} from 'https://namekinggamerboy.github.io/E-Commerce-Helper/function/navbar.js';
+import {viewFooter} from 'https://namekinggamerboy.github.io/E-Commerce-Helper/function/footer.js';
 
 export function viewWebsite(body, webdata, invertColor, navColorPicker) {
-   // console.log(body);
    if(body.success){
-     MainData = body.data; 
       let ggscript = '';
       let desc = body.data.website.description;
       if(desc.includes("[ECOM.STARTSCRIPT:")){
@@ -59,8 +56,4 @@ export function viewWebsite(body, webdata, invertColor, navColorPicker) {
     console.log(body.error);
   }
 }
-}
-export function GetData(name) {
-   console.log(MainData);
-   return MainData; 
 }
