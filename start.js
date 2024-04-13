@@ -61,5 +61,6 @@ export function viewWebsite(body, webdata, invertColor, navColorPicker) {
 }
 }
 export function GetData(name) {
+   console.log(MainData);
    return MainData; 
 }
