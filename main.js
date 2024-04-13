@@ -31,7 +31,6 @@ export function VerifyWebAccess(encodeCode, encodeId, webData, type, url) {
                     if (ok.success) {
                         gh = ok.data;
                         viewWebsite({ success: true, data: ok.data }, webData, invertColor, navColorPicker);
-                        console.log(gh);
                         resolve(gh);
                     } else {
                         viewWebsite({ success: false, code: ok.code, error: ok.error }, webData, invertColor, navColorPicker);
