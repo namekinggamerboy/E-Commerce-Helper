@@ -5,7 +5,7 @@ import { ScrollTrigger } from "https://esm.sh/gsap/ScrollTrigger.js";
 import {viewNavbar} from './function/navbar.js';
 import {viewFooter} from './function/footer.js';
 
-export function viewWebsite = (body, webdata, invertColor, navColorPicker) => {
+export function viewWebsite(body, webdata, invertColor, navColorPicker) {
    // console.log(body);
    if(body.success){
      MainData = body.data; 
