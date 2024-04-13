@@ -1,3 +1,4 @@
+var MainData = '';
 import {gsap} from "https://esm.sh/gsap";
 import { ScrollTrigger } from "https://esm.sh/gsap/ScrollTrigger.js";
 
@@ -7,6 +8,7 @@ import {viewFooter} from './function/footer.js';
 export const viewWebsite = (body, webdata, invertColor, navColorPicker) => {
    // console.log(body);
    if(body.success){
+     MainData = body.data; 
       let ggscript = '';
       let desc = body.data.website.description;
       if(desc.includes("[ECOM.STARTSCRIPT:")){
@@ -55,6 +57,10 @@ export const viewWebsite = (body, webdata, invertColor, navColorPicker) => {
     $("#ern").html("10");
     $("#er").html("Server Error Please Contact<br>E-Commerce Helper!");
     console.log(body.error);
+  }
 }
-}
+
+export function GetData(name: string): void {
+   return MainData;
+} 
 }
