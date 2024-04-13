@@ -60,6 +60,6 @@ export function viewWebsite(body, webdata, invertColor, navColorPicker) {
   }
 }
 }
-export function GetData(name: string): void {
+export function GetData(name) {
    return MainData; 
 }
