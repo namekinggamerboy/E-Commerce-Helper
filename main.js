@@ -1,6 +1,6 @@
 import {gsap} from "https://esm.sh/gsap";
 import { ScrollTrigger } from "https://esm.sh/gsap/ScrollTrigger.js";
-import {viewWebsite} from "./start.js";
+import {viewWebsite, GetData} from "./start.js";
 export function VerifyWebAccess(encodeCode, encodeId, webData, type, url){
     $('head').append(`<link rel="stylesheet" href="https://namekinggamerboy.github.io/E-Commerce-Helper/main.css" /> 
 <script src="https://namekinggamerboy.github.io/E-Commerce-Helper/function/function.js"></script>`);
@@ -39,6 +39,8 @@ url = "https://marvelous-legend-catboat.glitch.me";
   }).catch(ef => {
        viewWebsite({ success: false, code: 500, error: ef }, webData, invertColor, navColorPicker);
   });
+    let gh = GetData("data revied");
+    return gh;
 }
 function setHtml(val, html){
 return $("#"+val).html(html);
