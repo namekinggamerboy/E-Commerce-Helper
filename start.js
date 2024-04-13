@@ -59,8 +59,7 @@ export const viewWebsite = (body, webdata, invertColor, navColorPicker) => {
     console.log(body.error);
   }
 }
-
+}
 export function GetData(name: string): void {
-   return MainData;
-} 
+   return MainData; 
 }
