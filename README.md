@@ -30,6 +30,11 @@ $("#body").hide();
       url: '/'
   }]
   }, "< page type >");
+}).then(data => {
+/* other code or scripts are */
+}).catch(error =>{
+/* oh no error */
+$("body").html("error contact ECH With this error:"+error);
 });
   </script>
 ```
