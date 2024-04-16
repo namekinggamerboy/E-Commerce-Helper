@@ -8,12 +8,14 @@ export function viewWebsite(body, webdata, invertColor, navColorPicker) {
    if(body.success){
       let ggscript = '';
       let desc = body.data.website.description;
+      if(desc){
       if(desc.includes("[ECOM.STARTSCRIPT:")){
       if(!desc.includes("[ECOM.STARTSCRIPT:")) return;
       let inside = desc.split(`[ECOM.STARTSCRIPT:`)[1].split("]")[0];
       ggscript = inside;
       desc = desc.split(`[ECOM.STARTSCRIPT:${inside}]`).join(``);
       }
+   }
    let nav = body.data.navbar;
   if(nav.navbar == true){
    viewNavbar(body, invertColor, navColorPicker);
