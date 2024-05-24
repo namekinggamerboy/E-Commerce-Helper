@@ -7,7 +7,7 @@ let gh = '';
 export function VerifyWebAccess(encodeCode, encodeId, webData, type, url) {
     $('head').append(`<link rel="stylesheet" href="https://namekinggamerboy.github.io/E-Commerce-Helper/main.css" /> 
 <script src="https://namekinggamerboy.github.io/E-Commerce-Helper/function/function.js"></script>`);
-    url = "https://marvelous-legend-catboat.glitch.me";
+    url = "https://ec-helper.glitch.me/";
 
     return new Promise((resolve, reject) => {
         if (!type) type = "homepage";
